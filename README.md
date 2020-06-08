@@ -1,5 +1,5 @@
 ## Superposition AI/ML Chatbot Building Workshop 
-On 6/6/2020, we made a bot that tells you what programming language you are. 
+On 6/6/2020, we made a bot that tells you what programming language you are. This README has instructions on getting started with your bot and where to put the JSON and JS code in this repo, as well as some [Resources](#Resources) at the bottom.
 
 You'll need 
 - a Twilio account--[sign up for a free one here and receive an extra $10 if you upgrade through this link](http://www.twilio.com/referral/iHsJ5D) 
@@ -29,7 +29,7 @@ In the `Messaging` section of your purchased number, in the `A Message Comes In`
 ### Make a bot to ask questions
 Make a task called `main_questions`. Add the code from `bot.json` into it. It asks a series of questions in a [`Collect` Action](https://www.twilio.com/docs/autopilot/actions/collect) and takes in those questions. Each question has a name and a [`Validate` instruction](https://www.twilio.com/docs/autopilot/actions/collect#validate) to limit what the user can answer with. We use the Validate attribute allowed_values to provide an array of possible answers. If this was a quiz where there is only one right answer, it might only have one allowed value.
 
-After the last question, the bot redirects to a Twilio Function to tally up all the answers and calculate the all-important answer to "What Twilio Product are you?"
+After the last question, the bot redirects (with a [`Redirect` Action](https://www.twilio.com/docs/autopilot/actions/redirect)) to a Twilio Function (a serverless environment for Node.js apps) to tally up all the answers and calculate the all-important answer to "What Twilio Product are you?"
 
 ### Calculate the Results with JavaScript in a Twilio Function
 Make a new Function by clicking the red plus button in your [Functions Console](https://www.twilio.com/console/functions/manage). Select a `Blank` template and click `Create`.
@@ -40,7 +40,8 @@ Append `/superpos` to the path of your Function, then copy the path and paste it
 ### What's next for your bot
 You can add more questions, more answer choices, more emojis, or a more complex system of tallying up the answers. With people sheltering at home, now is a great time to create entertaining quizzes for personal or professional use. Twilio Autopilot makes it easy for you to get creative with chatbots and quizzes to engage with customers, fans, friends, and family, or just have fun. Let me know online or in the comments what you're building.
 
-#### resources
+#### Resources
 - [Twilio Autopilot Actions](https://www.twilio.com/docs/autopilot/actions)
 - [Twilio Autopilot Request](https://www.twilio.com/docs/autopilot/actions/autopilot-request)
-- [slides from workshop](https://www.slideshare.net/ElizabethLizzieSiegl/build-an-aiml-chatbot-workshop)
+- [Slides from workshop](https://www.slideshare.net/ElizabethLizzieSiegl/build-an-aiml-chatbot-workshop)
+- [Quizbot blog post](https://www.twilio.com/blog/build-a-quiz-bot-eight-minutes)
