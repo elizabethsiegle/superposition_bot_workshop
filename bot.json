@@ -1,0 +1,92 @@
+{
+    "actions": [
+        {
+            "collect": {
+                "name": "what_programming_language_are_you",
+                "questions": [
+                    {
+                        "question": "1. You have a virtual meeting at 9am. What are you doing at 8:58am? \n a. reviewing the meeting notes and agenda so you can participate \n b. drinking coffee, getting ready to lead the meeting \n c. just waking up ",
+                        "name": "q1",
+                        "validate": {
+                            "allowed_values": {
+                                "list": [
+                                    "a",
+                                    "b",
+                                    "c"
+                                ]
+                            },
+                            "on_failure": {
+                                "messages": [
+                                    {
+                                        "say": "Please send a, b, or c!"
+                                    }
+                                ],
+                                "repeat_question": true
+                            },
+                            "max_attempts": {
+                                "redirect": "task://greeting",
+                                "num_attempts": 3
+                            }
+                        }
+                    },
+                    {
+                        "question": "2. What celebrity baby name do you secretly love? \n a. Pilot Inspektor \n b. Banks💰 \n c. Apple ",
+                        "name": "q2",
+                        "validate": {
+                            "allowed_values": {
+                                "list": [
+                                    "a",
+                                    "b",
+                                    "c"
+                                ]
+                            },
+                            "on_failure": {
+                                "messages": [
+                                    {
+                                        "say": "Please send a, b, or c!"
+                                    }
+                                ],
+                                "repeat_question": true
+                            },
+                            "max_attempts": {
+                                "redirect": "task://greeting",
+                                "num_attempts": 3
+                            }
+                        }
+                    },
+                    {
+                        "question": "3. What's your go-to brunch order? \n a. pancakes \n b. avocado toast \n c. acai bowl ",
+                        "name": "q3",
+                        "validate": {
+                            "allowed_values": {
+                                "list": [
+                                    "a",
+                                    "b",
+                                    "c"
+                                ]
+                            },
+                            "on_failure": {
+                                "messages": [
+                                    {
+                                        "say": "Please send a, b, or c!"
+                                    }
+                                ],
+                                "repeat_question": true
+                            },
+                            "max_attempts": {
+                                "redirect": "task://greeting",
+                                "num_attempts": 3
+                            }
+                        }
+                    }
+                ],
+                "on_complete": {
+                    "redirect": {
+                        "method": "POST",
+                        "uri": "https://YOUR-TWILIO-FUNCTION.twil.io/superpos" //this is unique to you, your base URL will be different
+                    }
+                }
+            }
+        }
+    ]
+}
